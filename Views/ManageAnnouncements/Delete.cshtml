@@ -1,0 +1,70 @@
+﻿@model BarangayBagbag.Models.Announcement
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<nav class="bg-green-800 text-white ">
+    <div class="max-w-6xl mx-auto w-full px-6 h-16 flex justify-between items-center">
+        <div class="flex items-center gap-2">
+            <img class="h-10" src="~/Image/Quezon_City.svg.png" />
+            <h1 class="text-2xl font-semibold">Barangay Bagbag</h1>
+        </div>
+        <ul class="flex gap-10">
+            <li>
+                Home
+            </li>
+            <li>
+                @Html.ActionLink("About Us", "AboutUs", "Bagbag")
+            </li>
+            <li>
+                Services
+            </li>
+            <li>
+                @Html.ActionLink("Announcements", "Announcements", "Bagbag")
+            </li>
+            <li>
+                Scholarships
+            </li>
+            <li>
+                @Html.ActionLink("Logout", "Logout", "Login")
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<main class="min-h-[calc(100svh_-_16rem)] max-w-6xl mx-auto px-6 text-gray-700 pt-12 pb-24">
+    <header class="flex justify-between mb-3">
+        <h2 class="text-2xl font-semibold">Delete Announcement</h2>
+        <p>
+            @Html.ActionLink("« Back", "Index", null, new { @class = "font-medium hover:underline" })
+        </p>
+    </header>
+
+    <div>
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="text-center mb-3">
+                <p class="mb-1">Are you sure you want to delete this announcement?</p>
+                <input
+                    type="submit"
+                    value="Delete"
+                    class="bg-red-500 hover:bg-red-400 px-4 py-2 transition duration-200 text-white font-medium rounded-md"
+                />
+            </div>
+        }
+    </div>
+
+    <section>
+        <h3 class="font-semibold text-lg">
+            @Html.DisplayFor(model => model.title)
+        </h3>
+        <p class="mb-6 text-sm">Date posted: @Html.DisplayFor(model => model.createdAt)</p>
+
+        <p>
+            @Html.DisplayFor(model => model.description)
+        </p>
+    </section>
+</main>

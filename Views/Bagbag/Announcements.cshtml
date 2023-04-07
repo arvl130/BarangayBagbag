@@ -1,0 +1,56 @@
+﻿@model IEnumerable<BarangayBagbag.Models.Announcement>
+
+@{
+    ViewBag.Title = "Announcements";
+}
+
+
+<nav class="bg-green-800 text-white ">
+    <div class="max-w-6xl mx-auto w-full px-6 h-16 flex justify-between items-center">
+        <div class="flex items-center gap-2">
+            <img class="h-10" src="~/Image/Quezon_City.svg.png" />
+            <h1 class="text-2xl font-semibold">Barangay Bagbag</h1>
+        </div>
+        <ul class="flex gap-10">
+            <li>
+                Home
+            </li>
+            <li>
+                @Html.ActionLink("About Us", "AboutUs", "Bagbag")
+            </li>
+            <li>
+                Services
+            </li>
+            <li>
+                @Html.ActionLink("Announcements", "Announcements", "Bagbag")
+            </li>
+            <li>
+                Scholarships
+            </li>
+            <li>
+                @Html.ActionLink("Login", "Index", "Login")
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<main class="min-h-[calc(100svh_-_16rem)] max-w-6xl mx-auto px-6 text-gray-700 pt-12 pb-24">
+    <header class="flex justify-between mb-3">
+        <h2 class="text-2xl font-semibold">Announcements</h2>
+    </header>
+
+    <section class="grid grid-cols-3 gap-4">
+        @foreach (var item in Model)
+        {
+            <div class="px-6 py-4 border border-gray-300 rounded-lg">
+                <div class="mb-1 font-semibold text-lg">
+                    @Html.DisplayFor(modelItem => item.title)
+                </div>
+                <img src="@item.imgUrl" alt="Image for this post" class="bg-gray-100 h-36 w-full object-contain mb-3" />
+                <div class="text-sm">
+                    Posted @Html.DisplayFor(modelItem => item.createdAt)
+                </div>
+            </div>
+        }
+    </section>
+</main>

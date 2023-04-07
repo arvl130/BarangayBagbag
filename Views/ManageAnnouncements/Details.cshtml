@@ -1,0 +1,57 @@
+﻿@model BarangayBagbag.Models.Announcement
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<nav class="bg-green-800 text-white ">
+    <div class="max-w-6xl mx-auto w-full px-6 h-16 flex justify-between items-center">
+        <div class="flex items-center gap-2">
+            <img class="h-10" src="~/Image/Quezon_City.svg.png" />
+            <h1 class="text-2xl font-semibold">Barangay Bagbag</h1>
+        </div>
+        <ul class="flex gap-10">
+            <li>
+                Home
+            </li>
+            <li>
+                @Html.ActionLink("About Us", "AboutUs", "Bagbag")
+            </li>
+            <li>
+                Services
+            </li>
+            <li>
+                @Html.ActionLink("Announcements", "Announcements", "Bagbag")
+            </li>
+            <li>
+                Scholarships
+            </li>
+            <li>
+                @Html.ActionLink("Logout", "Logout", "Login")
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<main class="min-h-[calc(100svh_-_16rem)] max-w-6xl mx-auto px-6 text-gray-700 pt-12 pb-24">
+    <header class="flex justify-between mb-3">
+        <h2 class="text-2xl font-semibold">View Announcement</h2>
+        <p>
+            @Html.ActionLink("« Back", "Index", null, new { @class = "font-medium hover:underline" }) | @Html.ActionLink("Edit", "Edit", new { id = Model.id }, new { @class = "font-medium hover:underline" })
+        </p>
+    </header>
+
+    <section>
+            <h3 class="font-semibold text-lg">
+                @Html.DisplayFor(model => model.title)
+            </h3>
+            <p class="mb-6 text-sm">Date posted: @Html.DisplayFor(model => model.createdAt)</p>
+
+            <img src="@Model.imgUrl" alt="Image for this post" class="h-80 w-full mb-6 object-contain bg-gray-100" />
+
+            <p>
+                @Html.DisplayFor(model => model.description)
+            </p>
+    </section>
+</main>
+

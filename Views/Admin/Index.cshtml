@@ -1,0 +1,46 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<nav class="bg-green-800 text-white ">
+    <div class="max-w-6xl mx-auto w-full px-6 h-16 flex justify-between items-center">
+        <div class="flex items-center gap-2">
+            <img class="h-10" src="~/Image/Quezon_City.svg.png" />
+            <h1 class="text-2xl font-semibold">Barangay Bagbag</h1>
+        </div>
+        <ul class="flex gap-10">
+            <li>
+                Home
+            </li>
+            <li>
+                @Html.ActionLink("About Us", "AboutUs", "Bagbag")
+            </li>
+            <li>
+                Services
+            </li>
+            <li>
+                Announcements
+            </li>
+            <li>
+                Scholarships
+            </li>
+            <li>
+                @Html.ActionLink("Logout", "Logout", "Login")
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<main class="min-h-[calc(100svh_-_16rem)] max-w-6xl mx-auto px-6 text-gray-700 pt-12 pb-24">
+    <header>
+        <h2 class="text-2xl font-semibold">Admin Dashboard</h2>
+    </header>
+    <section class="max-w-3xl mx-auto pt-12 grid grid-cols-2 gap-x-3 gap-y-4">
+        @Html.ActionLink("Manage Scholars", "Index", "Bagbag", null, new { @class = "h-36 bg-gray-50 hover:bg-gray-100 text-lg font-medium border border-gray-300 px-4 py-2 rounded-lg hover:shadow-md transition duration-200 flex items-center justify-center" })
+        @Html.ActionLink("Manage Updates & Announcements", "Index", "ManageAnnouncements", null, new { @class = "h-36 bg-gray-50 hover:bg-gray-100 text-lg font-medium border border-gray-300 px-4 py-2 rounded-lg hover:shadow-md transition duration-200 flex items-center justify-center" })
+        @Html.ActionLink("Button 3", "Index", "Bagbag", null, new { @class = "h-36 bg-gray-50 hover:bg-gray-100 text-lg font-medium border border-gray-300 px-4 py-2 rounded-lg hover:shadow-md transition duration-200 flex items-center justify-center" })
+        @Html.ActionLink("Button 4", "Index", "Bagbag", null, new { @class = "h-36 bg-gray-50 hover:bg-gray-100 text-lg font-medium border border-gray-300 px-4 py-2 rounded-lg hover:shadow-md transition duration-200 flex items-center justify-center" })
+        @Html.ActionLink("Button 5", "Index", "Bagbag", null, new { @class = "h-36 bg-gray-50 hover:bg-gray-100 text-lg font-medium border border-gray-300 px-4 py-2 rounded-lg hover:shadow-md transition duration-200 flex items-center justify-center" })
+    </section>
+</main>

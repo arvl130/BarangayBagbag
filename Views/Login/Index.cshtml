@@ -1,0 +1,71 @@
+﻿@model BarangayBagbag.Models.UserCredential
+
+@{
+    ViewBag.Title = "Login";
+}
+
+<div class="min-h-screen bg-gray-100">
+    <nav class="bg-green-800 text-white mb-20">
+        <div class="max-w-6xl mx-auto w-full px-6 h-16 flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <img class="h-10" src="~/Image/Quezon_City.svg.png" />
+                <h1 class="text-2xl font-semibold">Barangay Bagbag</h1>
+            </div>
+            <ul class="flex gap-10">
+                <li>
+                    Home
+                </li>
+                <li>
+                    @Html.ActionLink("About Us", "AboutUs", "Bagbag")
+                </li>
+                <li>
+                    Services
+                </li>
+                <li>
+                    @Html.ActionLink("Announcements", "Announcements", "Bagbag")
+                </li>
+                <li>
+                    Scholarships
+                </li>
+                <li>
+                    @Html.ActionLink("Login", "Index", "Login")
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="max-w-md mx-auto px-12 pb-10 pt-8 rounded-2xl shadow-md bg-white">
+        <h2 class="text-center text-2xl font-semibold mb-3">Login</h2>
+        @using (Html.BeginForm("Index", "Login", new { ReturnUrl = Request.QueryString["ReturnUrl"] }, FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+            <div>
+                <label>Username</label>
+                <div class="grid">
+                    @Html.EditorFor(m => m.username, new { htmlAttributes = new { @class = "block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-500 bg-white border rounded-lg focus:border-blue-400 focus:ring-opacity-40 focus:outline-none focus:ring focus:ring-blue-300" } })
+                    @Html.ValidationMessageFor(m => m.username, "", new { @class = "text-red-500 mt-1" })
+                </div>
+            </div>
+            <div>
+                <label>Password</label>
+                <div class="grid">
+                    @Html.EditorFor(m => m.password, new { htmlAttributes = new { @class = "block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-500 bg-white border rounded-lg focus:border-blue-400 focus:ring-opacity-40 focus:outline-none focus:ring focus:ring-blue-300" } })
+                    @Html.ValidationMessageFor(m => m.password, "", new { @class = "text-red-500 mt-1" })
+                </div>
+            </div>
+
+            <div class="mb-3 text-center text-red-500">
+                @Html.ValidationSummary(true)
+            </div>
+
+            <div class="mt-2">
+                <button class="px-6 py-2 w-full font-medium tracking-wide text-white capitalize transition duration-200 bg-blue-500 rounded-lg hover:bg-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50">
+                    Login
+                </button>
+            </div>
+        }
+    </main>
+</div>
+
+
+

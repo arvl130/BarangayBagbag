@@ -1,0 +1,71 @@
+﻿@model IEnumerable<BarangayBagbag.Models.Announcement>
+
+@{
+    ViewBag.Title = "Manage Announcements";
+}
+
+<nav class="bg-green-800 text-white ">
+    <div class="max-w-6xl mx-auto w-full px-6 h-16 flex justify-between items-center">
+        <div class="flex items-center gap-2">
+            <img class="h-10" src="~/Image/Quezon_City.svg.png" />
+            <h1 class="text-2xl font-semibold">Barangay Bagbag</h1>
+        </div>
+        <ul class="flex gap-10">
+            <li>
+                Home
+            </li>
+            <li>
+                @Html.ActionLink("About Us", "AboutUs", "Bagbag")
+            </li>
+            <li>
+                Services
+            </li>
+            <li>
+                @Html.ActionLink("Announcements", "Announcements", "Bagbag")
+            </li>
+            <li>
+                Scholarships
+            </li>
+            <li>
+                @Html.ActionLink("Logout", "Logout", "Login")
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<main class="min-h-[calc(100svh_-_16rem)] max-w-6xl mx-auto px-6 text-gray-700 pt-12 pb-24">
+    <header class="flex justify-between mb-3">
+        <h2 class="text-2xl font-semibold">Manage Announcements</h2>
+        <p>
+            @Html.ActionLink("New Announcement »", "Create", null, new { @class = "font-medium hover:underline" })
+        </p>
+    </header>
+    
+    <section>
+        <div>
+            <div class="grid grid-cols-[1fr_16rem_12rem] gap-2 font-semibold bg-gray-700 text-white px-4 py-2">
+                <div>Title</div>
+                <div>Date Posted</div>
+                <div>Actions</div>
+            </div>
+
+            @foreach (var item in Model)
+            {
+                <div class="grid grid-cols-[1fr_16rem_12rem] gap-2 px-4 py-3 border-b border-gray-300">
+                    <div>
+                        @Html.DisplayFor(modelItem => item.title)
+                    </div>
+                    <div>
+                        @Html.DisplayFor(modelItem => item.createdAt)
+                    </div>
+                    <div>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.id }, new { @class = "font-medium hover:underline" }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.id }, new { @class = "font-medium hover:underline" }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.id }, new { @class = "font-medium hover:underline" })
+                    </div>
+                </div>
+            }
+
+        </div>
+    </section>
+</main>
